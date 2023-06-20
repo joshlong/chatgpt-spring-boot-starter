@@ -22,10 +22,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.mvnsearch.chatgpt.model.function.GPTFunctionUtils.extractFunctions;
 
 /**
- * Maintains references to all the functions used as callbacks.
- *
- * Also registers required hints so that those functions work in a GraalVM native image
- * context.
+ * Maintains references to all the functions used as callbacks. Also registers required
+ * hints so that those functions work in a GraalVM native image context.
  */
 class GPTFunctionsRegistry implements BeanPostProcessor, InitializingBean, BeanRegistrationAotProcessor {
 
