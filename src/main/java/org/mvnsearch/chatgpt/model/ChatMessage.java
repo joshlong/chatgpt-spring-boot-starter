@@ -6,72 +6,76 @@ import jakarta.annotation.Nonnull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChatMessage {
-    private String role;
-    private String content;
-    /**
-     * the name of the author of this message
-     */
-    private String name;
 
-    @JsonProperty("function_call")
-    private FunctionCall functionCall;
+	private String role;
 
-    public ChatMessage() {
-    }
+	private String content;
 
-    public ChatMessage(String role, String content) {
-        this.role = role;
-        this.content = content;
-    }
+	/**
+	 * the name of the author of this message
+	 */
+	private String name;
 
-    public ChatMessage(String role, String content, String name, FunctionCall functionCall) {
-        this.role = role;
-        this.content = content;
-        this.name = name;
-        this.functionCall = functionCall;
-    }
+	@JsonProperty("function_call")
+	private FunctionCall functionCall;
 
-    public String getRole() {
-        return role;
-    }
+	public ChatMessage() {
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public ChatMessage(String role, String content) {
+		this.role = role;
+		this.content = content;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public ChatMessage(String role, String content, String name, FunctionCall functionCall) {
+		this.role = role;
+		this.content = content;
+		this.name = name;
+		this.functionCall = functionCall;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public String getRole() {
+		return role;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setRole(String role) {
+		this.role = role;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public FunctionCall getFunctionCall() {
-        return functionCall;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public void setFunctionCall(FunctionCall functionCall) {
-        this.functionCall = functionCall;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public static ChatMessage systemMessage(@Nonnull String content) {
-        return new ChatMessage("system", content);
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public static ChatMessage userMessage(@Nonnull String content) {
-        return new ChatMessage("user", content);
-    }
+	public FunctionCall getFunctionCall() {
+		return functionCall;
+	}
 
-    public static ChatMessage assistantMessage(@Nonnull String content) {
-        return new ChatMessage("assistant", content);
-    }
+	public void setFunctionCall(FunctionCall functionCall) {
+		this.functionCall = functionCall;
+	}
+
+	public static ChatMessage systemMessage(@Nonnull String content) {
+		return new ChatMessage("system", content);
+	}
+
+	public static ChatMessage userMessage(@Nonnull String content) {
+		return new ChatMessage("user", content);
+	}
+
+	public static ChatMessage assistantMessage(@Nonnull String content) {
+		return new ChatMessage("assistant", content);
+	}
+
 }

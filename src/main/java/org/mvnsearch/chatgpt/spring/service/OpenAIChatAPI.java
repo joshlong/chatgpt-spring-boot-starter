@@ -1,4 +1,4 @@
-package org.mvnsearch.chatgpt.spring.http;
+package org.mvnsearch.chatgpt.spring.service;
 
 import org.mvnsearch.chatgpt.model.ChatCompletionRequest;
 import org.mvnsearch.chatgpt.model.ChatCompletionResponse;
@@ -9,11 +9,12 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @HttpExchange("https://api.openai.com")
-public interface OpenAIChatAPI {
-    @PostExchange("/v1/chat/completions")
-    Mono<ChatCompletionResponse> chat(@RequestBody ChatCompletionRequest request);
+interface OpenAIChatAPI {
 
-    @PostExchange("/v1/chat/completions")
-    Flux<ChatCompletionResponse> stream(@RequestBody ChatCompletionRequest request);
+	@PostExchange("/v1/chat/completions")
+	Mono<ChatCompletionResponse> chat(@RequestBody ChatCompletionRequest request);
+
+	@PostExchange("/v1/chat/completions")
+	Flux<ChatCompletionResponse> stream(@RequestBody ChatCompletionRequest request);
 
 }
